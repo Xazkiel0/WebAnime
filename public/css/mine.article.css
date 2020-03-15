@@ -1,0 +1,38 @@
+*{
+    border:none !important ;
+}
+.card-header {
+    background-color: #ffffff;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #ffffff !important;
+}
+ #heading-card {
+    margin-top: 15px;
+    font-size: 28px;
+}
+#cardheader-subtext {
+    font-size: 13px;
+    color: rgb(123, 123, 123);
+}
+.row.space-rows {
+    margin: 40px;
+}
+.col {
+    padding:0;
+}
+.card-body{
+    padding: 0;
+    background: #ffffff;
+    border: 1px solid #ffffff !important;
+}
+.container-category{
+    margin: 50px 0 0 50px
+}
+.card-header:first-child:hover{
+    /* background-size:cover ; */
+    background-color: black;
+}
+  
