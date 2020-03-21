@@ -43,42 +43,22 @@
     </h2>
 </div>
 <div class="row space-rows">
-    {{-- <div class="col">
+    @foreach ($articles as $article)
+    <div class="col">
 
-        <div class="card-header border rounded-0 card-hover"
-            style="background-image:url({{asset('images/article1.jpg')}});">
-</div>
-<div class="card-body border rounded-0">
-    <h4 id="heading-card">Judul Article</h4>
-    <p id="cardheader-subtext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, culpa amet
-        enim veniam itaque </p>
-</div>
+        <div class="card-header border rounded-0" style="background-image:url({{$article->myPhoto()}});">
+        </div>
+        <div class="card-body border rounded-0">
+            <span>{{$article->category->name}}</span>
+            <h4 id="heading-card">{{$article->name}}</h4>
+            @foreach ($article->genre as $gnr)
+            <span>{{$gnr->name}}</span>
+            @endforeach
+            <p id="cardheader-subtext">{{$article->Content}}</p>
+        </div>
 
-</div> --}}
-
-@foreach ($articles as $article)
-<div class="col">
-
-    <div class="card-header border rounded-0" style="background-image:url({{asset('images/article2.jpg')}});">
     </div>
-    <div class="card-body border rounded-0">
-        <h4 id="heading-card">{{$article->name}}</h4>
-        <p id="cardheader-subtext">{{$article->Content}}</p>
-    </div>
-
-</div>
-@endforeach
-{{-- <div class="col">
-
-        <div class="card-header border rounded-0" style="background-image:url({{asset('images/article3.jpg')}});">
-</div>
-<div class="card-body border rounded-0">
-    <h4 id="heading-card">Judul Article</h4>
-    <p id="cardheader-subtext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, culpa amet
-        enim veniam itaque </p>
-</div>
-
-</div> --}}
+    @endforeach
 </div>
 <div class="container-category">
     <h2>

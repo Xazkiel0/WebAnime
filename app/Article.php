@@ -15,4 +15,13 @@ class Article extends Model
 
         return asset('images/' . $this->photo);
     }
+
+    public function Category()
+    {
+        return $this->hasOne('App\Category');
+    }
+    public function Genre()
+    {
+        return $this->hasMany('App\Genre');
+    }
 }

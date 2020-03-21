@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::take(3)->get();
         return view('LandingPage', compact('articles'));
     }
 }

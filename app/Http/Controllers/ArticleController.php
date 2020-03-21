@@ -66,7 +66,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        return view('EditArticle', compact('article'));
+        return view('ArticleEdit', compact('article'));
     }
 
     /**
@@ -78,12 +78,23 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
+        $request->validate([
+            'name' => 'required',
+            'photo' => 'required',
+            'Content' => 'required'
+        ]);
+        // return $request->all();
+        global $fileName;
+        if ($request->hasFile('photo')) {
+            $request->file('photo')->move('images/', $request->file('photo')->getClientOriginalName());
+            $fileName = $request->file('photo')->getClientOriginalName();
+        }
         $article->where('id', $article->id)->update([
             'name' => $request->name,
             'Content' => $request->Content,
-            'Photo' => "default.jpg"
+            'photo' => $fileName
         ]);
-        return redirect()->home();
+        return redirect()->intended('manage/article');
     }
 
     /**

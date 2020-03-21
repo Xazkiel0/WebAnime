@@ -20,18 +20,18 @@ class DatabaseSeeder extends Seeder
         for ($i = 0; $i < 3; $i++) {
             Article::create([
                 'name' => $fake->firstName,
-                'category_id' => $fake->numberBetween(1, 6),
-                'Content' => $fake->text(1000)
+                'Content' => $fake->text(500)
             ]);
         }
         for ($j = 0; $j < 6; $j++) {
             Category::create([
                 'name' => $fake->randomElement(['Anime', 'Technology', 'Game', 'Film']),
-                'genre_id' => $fake->numberBetween(1, 6)
+                'article_id' => $fake->numberBetween(1, 6)
             ]);
         }
         for ($i = 0; $i < 6; $i++) {
             Genre::create([
+                'article_id' => $fake->numberBetween(1, 6),
                 'name' => $fake->randomElement(['Horror', 'Action', 'Fantasy', 'Adventure', 'Romance', 'Harem'])
             ]);
         }

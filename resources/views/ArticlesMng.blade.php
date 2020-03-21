@@ -13,16 +13,22 @@
     <tr>
         <th>No</th>
         <th>Title</th>
+        <th>Category</th>
         <th>Photo</th>
         <th>Action</th>
     </tr>
     @foreach ($articles as $article)
     <tr>
         <td>{{$loop->iteration}}</td>
+        <td>
+            @foreach ($article->genre as $gnr)
+            {{$gnr->name}}
+            @endforeach
+        </td>
         <td>{{$article->name}}</td>
         <td><img src="{{$article->myPhoto()}}" alt="" style="width: 50px"></td>
         <td>
-            <a class="btn btn-primary" href="{{ url('manage/article/'.$article->id) }}">Edit</a>
+            <a class="btn btn-primary" href="{{ route('article.edit', [$article->id]) }}">Edit</a>
             <form action="{{ url('manage/article/'.$article->id) }}" method="post">
                 @method('delete')
                 @csrf
@@ -32,5 +38,6 @@
     </tr>
     @endforeach
 </table>
+<script src="{{ asset('js/sc.js') }}"></script>
 
 @endsection
