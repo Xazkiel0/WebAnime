@@ -10,7 +10,6 @@
 
 {{-- 
     Problem in this Page {
-        Scroll Animation : Not a Smooth Scrolling [tugas:ipul || adam]
         Data to View : Data not Connected to Database
     }
     --}}
@@ -105,7 +104,7 @@
 @endsection
 @section('bot')
 <script src="{{asset('js/search-engine.js')}}"></script>
-<script src="{{asset('js/Scrolling.js')}}"></script>
-<script src="{{asset('js/jquery-3.4.1.min.js')}}"></script>
-<script src="{{asset('js/hamburger-menu.js')}}"></script>
+<script>
+    // let a = $('#')
+</script>
 @endsection

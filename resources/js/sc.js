@@ -1,1 +1,1 @@
-log
+console.log('asdadasd');

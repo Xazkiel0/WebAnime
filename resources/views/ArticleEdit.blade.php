@@ -26,8 +26,52 @@
 </div>
 @endsection
 @section('bot')
-<script src="{{ asset('ck/build/ckeditor.js') }}"></script>
-<script src="">
-
+<script src="{{ asset('js/ckeditor.js') }}"></script>
+<script>
+    ClassicEditor.create(document.querySelector('#editor'), {
+        toolbar: {
+            items: [
+                "heading",
+                "|",
+                "CKFinder",
+                "bold",
+                "italic",
+                "link",
+                "bulletedList",
+                "numberedList",
+                "alignment",
+                "|",
+                "fontFamily",
+                "fontColor",
+                "fontSize",
+                "indent",
+                "outdent",
+                "|",
+                "imageUpload",
+                "blockQuote",
+                "insertTable",
+                "mediaEmbed",
+                "undo",
+                "redo",
+                "code",
+                "specialCharacters"
+            ]
+        },
+        language: "id",
+        image: {
+            toolbar: ["imageTextAlternative", "imageStyle:full", "imageStyle:side"]
+        },
+        table: {
+            contentToolbar: ["tableColumn", "tableRow", "mergeTableCells"]
+        },
+        licenseKey: ""
+    })
+    .then(editor => {
+        window.editor = editor;
+        console.log(window.editor);
+    })
+    .catch(error => {
+        console.error(error);
+    });
 </script>
 @endsection
